@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>REZZ</title>
+      <meta charset="UTF-8">
+      <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="rezzSite" ng-controller="MainCtrl">
+    <div ng-repeat="show in shows ">
+      {{show.title}} - {{show.venue}} - {{show.state}}  -  {{show.date | date:'mediumDate'}} - <a href = '{{show.tickets}}'>Tickets</a>
+    </div>
+  </body>
+</html>
