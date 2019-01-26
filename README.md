@@ -22,7 +22,7 @@ I aim to improve this website. This is a way for me to learn/apply web design wh
 - Dynamic styling. The current site allows weird zooming.
 - Link redirecting. In mobile, it works fine if the user has the corresponding apps. On Desktop, it opens a new tab every time the user clicks a new link.
 
-## New Features Here 
+## New Features 
 - Dynamic map (Tour page)
 	- Shows where the next show is by flying a spaceship to the location of the venue
 	- Will use JSON objects to get the state (maybe address?) of the venue
@@ -47,3 +47,6 @@ I aim to improve this website. This is a way for me to learn/apply web design wh
 	- New music 
 	- New merch
 	- Merch sales (Black Friday, Limited edition, etc)
+
+### reminders to myself
+- JSON Date range for multi-day events (and/or) music festivals
