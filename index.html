@@ -10,6 +10,7 @@
   
   <body ng-app="rezzSite" ng-controller="MainCtrl">
     
+    <div id="boxLayout">
       <div id="navbar">
         <ul>
           <li>REZZ</li>
@@ -19,7 +20,7 @@
           <li>Social</li>
         </ul>
       </div>
-    <div id="boxLayout">
+
       <div id="intBox">
         <div id="visuals">
             <img src="rezzLogo.jpg">
@@ -27,15 +28,14 @@
 
         <div id="loc">
             <img src="mapPH.png">
-            
         </div>
-
       </div>
-    </div>
+    
 
-        <div id ="shows" ng-repeat="show in shows ">
-          {{show.title}} - {{show.venue}} - {{show.state}}  -  {{show.date | date:'mediumDate'}} - <a href = '{{show.tickets}}'>Tickets</a>
-        </div>
+    </div>
+      <div id ="showBox" ng-repeat="show in shows ">
+         {{show.title}} - {{show.venue}} - {{show.state}}  -  {{show.date | date:'mediumDate'}} - <a href = '{{show.tickets}}'>Tickets</a>
+       </div>
       
     
   </body>

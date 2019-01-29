@@ -4,13 +4,23 @@ body
 	max-height: 100%;
 	background-color: black;
 	color: white;
+	box-sizing: border-box;
+	
+
 }
 
 #boxLayout
 {
 	display: inline-block;
+	width: 100%;
 }
 
+
+#navbar
+{
+	background-color: white;
+	margin: 2%;
+}
 
 #navbar ul
 {
@@ -18,8 +28,6 @@ body
 	/*position: fixed;*/
 	color: red;
 	list-style-type: none;
-	
-	width: 100%;
 	font-size: 20px;
 }
 #navbar li{
@@ -29,39 +37,43 @@ body
 
 #intBox
 {
-	max-width: 900px;
-	display: block;
+	/*max-width: 100%;*/
+	display: inline-block;
 	background-color: lightgreen;
+	/*max-width: 100%;*/
+	/*padding: 10%;*/
 }
 
 
 #visuals
 {
-	
+	/*margin-left:2%;*/
+	/*margin-right: 2%;*/
 	float: left;
-	width: 400px;
-	background-color: lightblue;
 }
 
 #loc
 {
+
+	/*margin-left: 2%;*/
+	/*margin-right: 2%;*/
 	float:right;
-	height: 500px;
-	/*width: 500px;*/
 	
 }
 
 
+
 #loc img
 {	
-	float: right;
-	width:480;
+	/*float: right;*/
+	/*width:480;*/
 	height: 400px;
 }
 
-#shows
+#showBox
 {
-	/*float: bottom;*/
+	/*margin: 20px;*/
+	background-color: grey;
 }
 a:link{
 	color: red;
