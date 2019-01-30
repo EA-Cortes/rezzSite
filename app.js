@@ -55,4 +55,30 @@ function smoothZoom (map, max, cnt) {
   
 }
 
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+// ------------ playing with date/string formats to implement the nextShow() function ------------
+var rn = new Date('2019-02-09T18:25:43.511Z')
+var m = (rn.getMonth() + 1).toString();
+var d = rn.getDate().toString();
+var y = rn.getFullYear().toString();
+var fDate = m + "/" + d + "/" + y;
+
+function nextShow()
+{
+  if(Date.now() < rn){
+    window.alert("Not yet");
+  }else{
+    window.alert("Already passed");
+  }
+}
+
+nextShow();
+
+// window.alert(fDate);
+
+// ------------ 'Encrypeted' GCP key ----------
 var myKey = 'https://maps.googleapis.com/maps/api/js?key=' + keys.GCP_KEY + '&callback=initMap'; // Hides my GCP API Key
