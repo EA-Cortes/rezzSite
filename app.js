@@ -25,5 +25,10 @@ function($scope){
   // {title: '', venue: '', date: "", city: '', state: '', tickets:''}, 
   ];
 
-  $scope.firstShow = $scope.shows[0].city; //'Orlando';
+  $scope.firstShow = $scope.shows[0].city;
+  $scope.curTime =  Date.now();
+  
 }]);
+
+
+
