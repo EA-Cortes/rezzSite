@@ -3,7 +3,6 @@ var app = angular.module('rezzSite', []);
 app.controller('MainCtrl', [
 '$scope',
 function($scope){
-  $scope.test = 'Hello world!';
   
   $scope.shows = [
   // {title: 'show', venue: 'venue', date: "2012-04-20T18:25:43.511Z" },
@@ -24,6 +23,7 @@ function($scope){
   
   // template for future shows
   // {title: '', venue: '', date: "", city: '', state: '', tickets:''}, 
-
   ];
+
+  $scope.firstShow = $scope.shows[0].city; //'Orlando';
 }]);
