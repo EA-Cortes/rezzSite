@@ -1,5 +1,7 @@
 var app = angular.module('rezzSite', []);
 
+
+
 app.controller('MainCtrl', [
 '$scope',
 function($scope){
@@ -31,4 +33,26 @@ function($scope){
 }]);
 
 
+function initMap()
+{
+  var city = {lat: 28.555096, lng: -81.437580}; // coordinates for Orlando show
+  var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: city});
+  var marker = new google.maps.Marker({position: city, map: map, icon: 'spaceship.png'});
+  smoothZoom(map, 17, map.getZoom());
+  
+function smoothZoom (map, max, cnt) {
+    if (cnt >= max) {
+        return;
+    }
+    else {
+        z = google.maps.event.addListener(map, 'zoom_changed', function(event){
+            google.maps.event.removeListener(z);
+            smoothZoom(map, max, cnt + 1);
+        });
+        setTimeout(function(){map.setZoom(cnt)}, 250)
+    }
+}  
+  
+}
 
+var myKey = 'https://maps.googleapis.com/maps/api/js?key=' + keys.GCP_KEY + '&callback=initMap'; // Hides my GCP API Key
