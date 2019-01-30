@@ -5,7 +5,15 @@
       <link rel="icon" type="image/x-icon" href="favicon.ico"/>
       <link rel="stylesheet" href="styleRezz.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="app.js"></script>
+    
+    <script type='text/javascript' src='keys.js'></script>
+    <script type='text/javascript' src='app.js'></script>
+    <script async defer id="gcp"></script>
+    <script>
+      var k = myKey // gets 'encrypted' key from app.js
+      document.getElementById("gcp").src = k;
+    </script>
+        
   </head>
   
   <body ng-app="rezzSite" ng-controller="MainCtrl">
@@ -21,15 +29,17 @@
           <li>{{curTime | date:'shortTime'}}</li>
 
         </ul>
-      
+    
       <div id="intBox">
         <div id="visuals">
             <img src="rezzLogo.jpg">
         </div>
         <div id="loc">
-          <p>Next show is in: {{firstShow}}</p>
-            <img src="mapPH.png">
+          <p > Next show is in: {{firstShow}}</p>
+            <div id="map"></div>
+            
         </div>
+
       </div>
     
 
@@ -37,7 +47,10 @@
       <div id ="showBox" ng-repeat="show in shows ">
          {{show.title}} - {{show.venue}} - {{show.state}}  -  {{show.date | date:'mediumDate'}} - <a href = '{{show.tickets}}'>Tickets</a>
        </div>
-      
+        
+        
+            
+            
     </div>
   </body>
 </html>
