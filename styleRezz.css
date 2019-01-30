@@ -43,7 +43,7 @@ body
 {
 	float: left;
 	max-width: 30%;
-	margin-left: 5%;
+	margin-left: 2%;
 }
 
 #loc
@@ -51,18 +51,17 @@ body
 	font-size:20px;
 	font-style: italic;
 	max-width: 30%;
-	float:right;
+	float:left;
 	margin-right:5%;
 	
 }
 
 
-
-#loc img
-{	
-	height: 350px;
+#map
+{
+	height: 400px;
+	width: 400px;
 }
-
 #showBox
 {
 	background-color: grey;
