@@ -17,6 +17,7 @@ I aim to improve this website. This is a way for me to learn/apply web design wh
 - Hit Command + O *(Ctrl + O on Windows)*
 - Navigate to the folder where you saved this repository (it should be titled rezzSite)
 - Open the index.html file
+- (The GoogleMaps box won't work on your device unless you have a Google Cloud Platform API Key, contact me for info on this)
 
 ## Improved Features
 - Dynamic styling. The current site allows weird zooming.
@@ -50,3 +51,10 @@ I aim to improve this website. This is a way for me to learn/apply web design wh
 
 ### reminders to myself
 - JSON Date range for multi-day events (and/or) music festivals
+
+### Progress Notes
+- 01/29/2019
+	- Fixed CSS
+	- Added Encrypted GCP API Key so others can't use it
+	- Added GoogleMaps
+	- Added a custom marker and a function that zooms in on the marker
