@@ -1,6 +1,6 @@
 var app = angular.module('rezzSite', []);
-
-
+var lat, lng;
+// var city = "yeetTown";
 
 app.controller('MainCtrl', [
 '$scope',
@@ -27,8 +27,39 @@ function($scope){
   // {title: '', venue: '', date: "", city: '', state: '', tickets:''}, 
   ];
 
-  $scope.firstShow = $scope.shows[0].city;
+  
   $scope.curTime =  Date.now();
+
+  // window.alert($scope.shows[0].title);
+
+  // ------------ playing with date/string formats to implement the nextShow() function ------------
+  var rn = new Date("2019-02-23 T17:25:43.511Z")
+  var m = (rn.getMonth() + 1).toString();
+  var d = rn.getDate().toString();
+  var y = rn.getFullYear().toString();
+  var fDate = m + "/" + d + "/" + y;
+  var city;
+
+  
+  // Function that finds the next show by comparing now's time to the next show
+  function nextShow()
+  {
+    var i = 0;
+    var nextShowDate = new Date($scope.shows[0].date);
+    while(rn > nextShowDate){
+      i++;
+      nextShowDate = new Date($scope.shows[i].date);
+    }
+    
+    // Set upcoming values according to next show
+    $scope.upcomingState = $scope.shows[i].state;
+    $scope.upcomingShow = $scope.shows[i].title;
+    $scope.upcomingTime = $scope.shows[i].date;
+    city = $scope.shows[i].city;  
+    
+  }
+
+  nextShow();
   
 }]);
 
@@ -36,7 +67,7 @@ function($scope){
 function initMap()
 {
   var city = {lat: 28.555096, lng: -81.437580}; // coordinates for Orlando show
-  var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: city});
+  var map = new google.maps.Map(document.getElementById('map'), {zoom: 1, center: city});
   var marker = new google.maps.Marker({position: city, map: map, icon: 'spaceship.png'});
   smoothZoom(map, 17, map.getZoom());
   
@@ -49,36 +80,13 @@ function smoothZoom (map, max, cnt) {
             google.maps.event.removeListener(z);
             smoothZoom(map, max, cnt + 1);
         });
-        setTimeout(function(){map.setZoom(cnt)}, 250)
+        setTimeout(function(){map.setZoom(cnt)}, 160)
     }
 }  
   
 }
 
-Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-}
-// ------------ playing with date/string formats to implement the nextShow() function ------------
-var rn = new Date('2019-02-09T18:25:43.511Z')
-var m = (rn.getMonth() + 1).toString();
-var d = rn.getDate().toString();
-var y = rn.getFullYear().toString();
-var fDate = m + "/" + d + "/" + y;
-
-function nextShow()
-{
-  if(Date.now() < rn){
-    window.alert("Not yet");
-  }else{
-    window.alert("Already passed");
-  }
-}
-
-nextShow();
-
-// window.alert(fDate);
+// window.alert(city);
 
 // ------------ 'Encrypeted' GCP key ----------
 var myKey = 'https://maps.googleapis.com/maps/api/js?key=' + keys.GCP_KEY + '&callback=initMap'; // Hides my GCP API Key
