@@ -1,6 +1,6 @@
 var app = angular.module('rezzSite', []);
 var lat, lng;
-// var city = "yeetTown";
+var nextCity;
 
 app.controller('MainCtrl', [
 '$scope',
@@ -27,18 +27,14 @@ function($scope){
   // {title: '', venue: '', date: "", city: '', state: '', tickets:''}, 
   ];
 
-  
-  $scope.curTime =  Date.now();
-
-  // window.alert($scope.shows[0].title);
 
   // ------------ playing with date/string formats to implement the nextShow() function ------------
-  var rn = new Date("2019-02-23T17:25:43.511Z")
+  var rn = new Date("2019-02-20T17:25:43.511Z")
   var m = (rn.getMonth() + 1).toString();
   var d = rn.getDate().toString();
   var y = rn.getFullYear().toString();
   var fDate = m + "/" + d + "/" + y;
-  var city;
+  var nextCity;
 
   
   // Function that finds the next show by comparing now's time to the next show
@@ -46,7 +42,7 @@ function($scope){
   {
     var i = 0;
     var nextShowDate = new Date($scope.shows[i].date);
-    while(rn > nextShowDate){
+    while(Date.now() > nextShowDate){
       i++;
       nextShowDate = new Date($scope.shows[i].date);
     }
@@ -55,10 +51,11 @@ function($scope){
     $scope.upcomingState = $scope.shows[i].state;
     $scope.upcomingShow = $scope.shows[i].title;
     $scope.upcomingTime = $scope.shows[i].date;
-    city = $scope.shows[i].city;  
-    
+    nextCity = $scope.shows[i].city;  
+  
+    window.alert(nextCity);
   }
-
+    
   nextShow();
   
 }]);
@@ -66,10 +63,11 @@ function($scope){
 
 function initMap()
 {
+  var city = {lat: 43.038464, lng: -87.943364}; // Coordinates for eagle ballroom
   var city = {lat: 28.555096, lng: -81.437580}; // coordinates for Orlando show
   var map = new google.maps.Map(document.getElementById('map'), {zoom: 1, center: city});
   var marker = new google.maps.Marker({position: city, map: map, icon: 'spaceship.png'});
-  smoothZoom(map, 17, map.getZoom());
+  smoothZoom(map, 18, map.getZoom());
   
 function smoothZoom (map, max, cnt) {
     if (cnt >= max) {
@@ -80,13 +78,13 @@ function smoothZoom (map, max, cnt) {
             google.maps.event.removeListener(z);
             smoothZoom(map, max, cnt + 1);
         });
-        setTimeout(function(){map.setZoom(cnt)}, 160)
+        setTimeout(function(){map.setZoom(cnt)}, 200)
     }
 }  
   
 }
 
-// window.alert(city);
+window.alert(nextCity);
 
 // ------------ 'Encrypeted' GCP key ----------
 var myKey = 'https://maps.googleapis.com/maps/api/js?key=' + keys.GCP_KEY + '&callback=initMap'; // Hides my GCP API Key
