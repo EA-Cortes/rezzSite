@@ -33,7 +33,7 @@ function($scope){
   // window.alert($scope.shows[0].title);
 
   // ------------ playing with date/string formats to implement the nextShow() function ------------
-  var rn = new Date("2019-02-23 T17:25:43.511Z")
+  var rn = new Date("2019-02-23T17:25:43.511Z")
   var m = (rn.getMonth() + 1).toString();
   var d = rn.getDate().toString();
   var y = rn.getFullYear().toString();
@@ -45,7 +45,7 @@ function($scope){
   function nextShow()
   {
     var i = 0;
-    var nextShowDate = new Date($scope.shows[0].date);
+    var nextShowDate = new Date($scope.shows[i].date);
     while(rn > nextShowDate){
       i++;
       nextShowDate = new Date($scope.shows[i].date);
