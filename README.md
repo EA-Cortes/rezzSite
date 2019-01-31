@@ -1,5 +1,5 @@
 # rezzSite
-I don't like the current [REZZ](http://officialrezz.com/) website.
+The current [REZZ](http://officialrezz.com/) website is a little outdated.
 - It doesn't support HTTPS
 - Every time you click on a link, it opens a new tab
 - This significantly slows down the UX, especially when not on WiFi
@@ -58,3 +58,7 @@ I aim to improve this website. This is a way for me to learn/apply web design wh
 	- Added Encrypted GCP API Key so others can't use it
 	- Added GoogleMaps
 	- Added a custom marker and a function that zooms in on the marker
+- 01/30/2019
+	- Implemented nextShow() function. Compares Date.now() to shows[i].date.
+	- nextShow() needs to adjust the coordinates for the GoogleMaps box
+
